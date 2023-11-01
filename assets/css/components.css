@@ -1,0 +1,21 @@
+.botao {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 13.5px 16px;
+    gap: 8px;
+
+    position: absolute;
+    width: 128px;
+    height: 46px;
+    left: 1571px;
+    top: 96px;
+
+    /* Viva!/Primary */
+
+    background: #0061F4;
+    border-radius: 30px;  
+}

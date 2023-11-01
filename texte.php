@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário para Entrega de Medicamentos Antirretrovirais</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Adicionando a fonte Roboto do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('assets/img/rm222-mind-31.webp');
+            /* Substitua pelo caminho da sua imagem */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Mantém a imagem de fundo fixa */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #container {
+            background-color: rgba(255, 255, 255, 0.9);
+            /* Fundo branco transparente para o conteúdo */
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            position: absolute;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-family: 'Montserrat', sans-serif;
+            /* Aplicando a fonte Montserrat */
+        }
+
+        .divider {
+            width: 50px;
+            height: 3px;
+            background-color: #5e8ce4;
+            /* Cor da linha */
+            margin: 0 auto 20px;
+            /* Centralizar e adicionar espaço inferior */
+        }
+
+        p {
+            line-height: 1.6;
+            color: #444;
+            /* Tom de cinza mais suave */
+            margin-bottom: 20px;
+            /* Espaçamento inferior maior */
+        }
+
+        .form-label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn-continue {
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-size: 1rem;
+            background-color: #5e8ce4;
+            border: none;
+            color: white;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .btn-continue:hover {
+            background-color: #4b73c2;
+        }
+
+        .icon {
+            margin-right: 8px;
+        }
+
+        img {
+            width: 150px;
+            /* Tamanho desejado para a imagem */
+            height: 150px;
+            border-radius: 50%;
+            /* Transformar a imagem em um círculo */
+            margin: 0 auto 20px;
+            /* Centralizar a imagem e adicionar espaço inferior */
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            #container {
+                width: 90%;
+                position: relative;
+                border-radius: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <img src="assets/img/ahoraeagoralogop.png" alt="Imagem de exemplo">
+
+        <h1>Formulário para Entrega de Medicamentos Antirretrovirais</h1>
+        <div class="divider"></div>
+
+        <p>Olá, você já sabe que o uso dos antirretrovirais é fundamental para o tratamento do HIV. Ter os medicamentos
+            sempre disponíveis é essencial para uma boa adesão ao tratamento e obter os benefícios do controle da
+            infecção.</p>
+        <p>Preencha este formulário para receber seus medicamentos antirretrovirais de forma cômoda, sigilosa e segura,
+            em sua casa ou outro endereço desejado.</p>
+
+        <label for="id_cidade" class="form-label">Selecione a sua cidade</label>
+        <select class="form-select" id="id_cidade" name="id_cidade">
+            <option value="">Selecione...</option>
+            <option value="1">Campo Grande - MS</option>
+            <option value="2">Curitiba - PR</option>
+            <option value="3">Florianópolis - SC</option>
+            <option value="4">Porto Alegre - RS</option>
+        </select>
+
+        <div class="d-grid gap-2 py-3">
+            <button type="button" class="btn btn-continue" id="btn-parte0">
+                <i class="icon fas fa-arrow-right"></i> Continuar
+            </button>
+        </div>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function() {
+        $("#btn-parte0").on("click", function() {
+            if ($("#id_cidade option:selected").val() == "") {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'Selecione a cidade',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
+            }
+
+            if ($("#id_cidade option:selected").val() == "1") {
+                window.location.href = "formulario_cg.php";
+            } else if ($("#id_cidade option:selected").val() == "2") {
+                window.location.href = "formulario_cu.php";
+            } else if ($("#id_cidade option:selected").val() == "3") {
+                window.location.href = "formulario_fl.php";
+            } else if ($("#id_cidade option:selected").val() == "4") {
+                window.location.href = "formulario_pa.php";
+            }
+        });
+    });
+</script>
+
+
+
+</html>
